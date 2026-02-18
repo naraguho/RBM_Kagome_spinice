@@ -2,6 +2,9 @@
 using Random
 using Printf
 
+# Main idea : make loop visiting minority spin-majority spin-minority spin-..., when tail find head flip all the spin.
+
+
 # ----------------------------
 # Index helper (1-based)
 # ----------------------------
