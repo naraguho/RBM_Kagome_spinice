@@ -159,7 +159,6 @@ generate_kagome_dataset(
     n_therm=2000,
     save_every=100,
     n_configs=5000,
-    #outfile_bin="/Users/jangho/Library/CloudStorage/GoogleDrive-naraguhowork@gmail.com/My Drive/RBM_Kagome/ice1_data/MC_L=8_bin.txt",
-    outfile_pm="/Users/jangho/Library/CloudStorage/GoogleDrive-naraguhowork@gmail.com/My Drive/RBM_Kagome/ice1_data/MC_L=32_pm_use.txt",
+    outfile_pm="Your directory/MC_L=32.txt",
     seed=42
 )
