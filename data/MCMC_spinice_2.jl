@@ -120,8 +120,9 @@ function all_shells(nbr; rmax::Int)
 end
 
 # ============================================================
-# Hamiltonian convention (matches your "J>0 AF"):
+# Hamiltonian convention 
 #   H = Σ_r J_r Σ_{<ij>_r} s_i s_j
+# Important : second, thrid nearest neighbor --> second neighbor in graph
 # Single flip ΔE:
 #   ΔE = -2 s_i Σ_r J_r Σ_{j∈N_r(i)} s_j
 # ============================================================
@@ -170,12 +171,6 @@ function total_energy(spins::Vector{Int8}, shells_all, J1::Float64, J2::Float64,
     return E
 end
 
-using Plots
-using Printf
-
-using Plots
-using Printf
-
 # ----------------------------
 # index helper (same convention as your code)
 # ----------------------------
@@ -208,7 +203,7 @@ function kagome_positions(Lx::Int, Ly::Int)
 end
 
 # ----------------------------
-# Plot only UP triangles (unit-cell triangles)
+# For the diagnostic : Plot only UP triangles (unit-cell triangles)
 # ----------------------------
 function plot_up_triangle_sums(spins::Vector{Int8}, Lx::Int, Ly::Int;
                                outpath::Union{Nothing,String}=nothing,
@@ -262,7 +257,7 @@ function run_kagome_J123_mcmc(;
         T::Float64 = 0.2,
         J1::Float64 = +1.0,
         J2::Float64 = -0.1,
-        J3::Float64 = -0.1,
+        J3::Float64 = 0.0,
         n_therm::Int = 2_000,
         n_sweeps::Int = 20_000,
         meas_every::Int = 200,
@@ -339,7 +334,7 @@ spins_final = run_kagome_J123_mcmc(
     T=1e-10,
     J1=+1.0,
     J2=-0.1,
-    J3=-0.0,
+    J3=-0.0, #Again, second, third nearest neighbor is second neighbor in graph-wise.
     n_therm=2000,
     n_sweeps=20000,
     meas_every=20000,
